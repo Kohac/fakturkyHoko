@@ -1,0 +1,187 @@
+/* Utilities */
+:root{
+    --primary-bg-color:#29524A;
+    --primary-color:#FFBD00;
+    --light-bg-color:#D69F7E;
+}
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    /* background-color: var(--light-bg-color); */
+}
+.sm{
+    font-size: 12px;
+}
+.m{
+    font-size: 2em;
+}
+.l{
+    font-size: 3em;
+}
+.xl{
+    font-size: 4em;
+}
+.text-center{
+    text-align: center;
+}
+.btn-custom{
+    position: relative;
+    font-size: 16px;
+}
+.btn-custom input{
+    padding: 12px 12px;
+    width: 100%;
+    border: 2px solid #fff;
+    outline: none;
+    background-color: #aaa;
+    transition:background-color 0.4s ease;
+    margin: 5px 0;
+}
+.btn-custom .placeholder-custom{
+    position: absolute;
+    white-space: nowrap;
+    left: 13px;
+    top: 10px;
+    /* top: calc(50%); */
+    transform: translateY(-50%);
+    color: #fff;
+    transition: top 0.4s ease,
+                font-size 0.4s ease,
+                color 0.4s ease;
+    cursor: text;
+}
+.btn-custom input:focus + .placeholder-custom,
+.btn-custom input:valid + .placeholder-custom{
+    top: -12px;
+    left: 9px;
+    font-size: 12px;
+    color: var(--primary-bg-color);
+    /* background-color: #fff; */
+    animation: bgBtnFromGreyToWhite 0.4s ease forwards;
+    padding: 0 4px;
+}
+.btn-custom input:focus,
+.btn-custom input:valid{
+    background-color: #fff;
+    border: 2px solid #222;
+}
+
+@keyframes bgBtnFromGreyToWhite{
+    0%{
+        background-color: #aaa;
+    }
+    100%{
+        background-color: #fff;
+    }
+}
+/* .btn{
+    display: block;
+    width: 100%;
+    margin: 3px 0;
+} */
+label{
+    font-size: 1.20em;
+    font-weight: bold;
+}
+.title{
+    font-weight: bolder;
+    animation: slideInLeft ease-out 750ms;
+}
+.navbar{
+    animation: slideInRight ease-out 750ms;
+}
+@keyframes slideInLeft{
+    0%{transform: translateX(-100%);}
+    100%{transform: translateX(0%);}
+}
+@keyframes slideInRight{
+    0%{transform: translateX(100%);}
+    100%{transform: translateX(0%);}
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navigation{
+    padding: 0 25px;
+    background-color: var(--primary-bg-color);
+    color: var(--primary-color);
+}
+.navbar ul li{
+    display: inline;
+    padding: 8px 5px;
+}
+.navbar ul li a{
+    display: inline-block;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: 1.25em;
+    border: 1px solid var(--primary-color);
+    padding: 5px 8px;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+.navbar ul li a:hover{
+    transform: scale(0.96);
+}
+.grid{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+/* Utilities */
+/* Invoice */
+.grid-4-3{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;
+    /* grid-template-areas: ; */
+    /* grid-template-rows: 3; */
+}
+.invoice{
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 15px;
+    margin-bottom: 20px;
+}
+.invoice .document-data{
+    grid-column: 1 / span 4;
+    text-align: center;
+    padding: 0.40em 0.75em;
+}
+
+.invoice-body{
+    grid-column: 2 / span 3;
+}
+/* Invoice */
+/* qr code */
+#qr-code{
+    width: 100%;
+    /* height: 250px; */
+    /* margin: 15px; */
+    margin-top: 7px;
+}
+#qr-code img{
+    display: block;
+    width: 100%;
+}
+/* qr code */
+/* Footer */
+.footer{
+    background-color: var(--primary-bg-color);
+    color: var(--primary-color);
+    justify-content: space-evenly;
+    padding: 15px 0;
+}
+.footer-bar ul li a{
+    color: var(--primary-color);
+}
+/* Footer */

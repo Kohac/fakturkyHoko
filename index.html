@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script src="./script.js"></script>
+    <title>Fakturky HoKo</title>
+</head>
+<body>
+    <header>
+        <div class="navigation flex">
+            <h1 class="title xl">Fakturky HoKo s.r.o.</h1>
+            <div class="navbar">
+                <nav>
+                    <ul>
+                        <li><a href="#">Vytvořit fakturu</a></li>
+                        <li><a href="#">Přehled faktur</a></li>
+                        <li><a href="./invoiceTraining.html">Tisk faktury</a></li>
+                        <li><a href="#">Nastavení</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <section class="container">
+        <div class="invoice  grid-4-3">
+            <div class="document-data">
+                <h3 class="documentNumber text-center l">Evidenční číslo dokladu: </h3>
+            </div>
+            <div class="invoice-heading">
+                <div class="invoice-contractor">
+                    <h3 class="invoice-contractor-title m text-center">Dodavatel</h3>
+                    <label class="btn-custom">
+                        <input type="text" id="contractor-street" required>
+                        <span class="placeholder-custom">Ulice a číslo</span>
+                    </label>
+                    <label class="btn-custom">
+                        <input type="text" id="contractor-psc" required>
+                        <span class="placeholder-custom">PSČ</span>
+                    </label>
+                    <label class="btn-custom">
+                        <input type="text" id="contractor-city" required>
+                        <span class="placeholder-custom">Obec</span>
+                    </label>
+                    <label class="btn-custom">
+                        <input type="text" id="contractor-country" required>
+                        <span class="placeholder-custom">Země</span>
+                    </label>
+                    <label class="btn-custom">
+                        <input type="text" id="contractor-ico" required>
+                        <span class="placeholder-custom">IČO</span>
+                    </label>
+                    <label class="btn-custom">
+                        <input type="text" id="contractor-dic" required>
+                        <span class="placeholder-custom">DIČ</span>
+                    </label>
+                </div>
+            </div>
+            <div class="payment-data">
+                <div class="payment-detail">
+                    <h3 class="invoice-payment-detail-title m text-center">Platební údaje</h3>
+                    <label class="btn-custom">
+                        <input type="text" id="variableSymbol" required>
+                        <span class="placeholder-custom">Variabilní symbol</span>
+                    </label>
+                    <label class="btn-custom">
+                        <input type="text" id="specificSymbol"  required>
+                        <span class="placeholder-custom">Specifický symbol</span>
+                    </label>
+                    <label class="btn-custom">
+                        <input type="text" id="constantSymbol" required>
+                        <span class="placeholder-custom">Konstantní symbol</span>
+                    </label>
+                    <label class="btn-custom">
+                        <input type="text" id="dateOfDocument" required>
+                        <span class="placeholder-custom">Datum vystavení dokladu</span>
+                    </label>
+                    <label class="btn-custom">
+                        <input type="text" id="dueDateOfDocument" required>
+                        <span class="placeholder-custom">Datum splatnosti dokladu</span>
+                    </label>
+                    <label class="btn-custom">
+                        <input type="text" id="paymentType" required>
+                        <span class="placeholder-custom">Forma úhrady</span>
+                    </label>
+                    <label class="btn-custom">
+                        <input type="text" id="order" required>
+                        <span class="placeholder-custom">Objednávka</span>
+                    </label>
+                </div>
+            </div>
+            <div class="bank-connection">
+                <h3 class="invoice-bank-connection-title m text-center">Bankovní spojení</h3>
+                <label class="btn-custom">
+                    <input type="text" id="bankNumber" required>
+                    <span class="placeholder-custom">Číslo bankovního účtu</span>
+                </label>
+                <label class="btn-custom">
+                    <input type="text" id="bankCode" required>
+                    <span class="placeholder-custom">Kód banky</span>
+                </label>
+                <div class="payment-qr-code" id="qr-code">
+                    <img src="./qer.png" alt="">
+                </div>
+            </div>
+            <div class="delivery-address">
+                <h3 class="invoice-delivery-address-title m text-center">Adresa dodání</h3>
+                <label class="btn-custom">
+                    <input type="text" id="delivery-company" required>
+                    <span class="placeholder-custom">Firma</span>
+                </label>
+                <label class="btn-custom">
+                    <input type="text" id="delivery-deputy" required>
+                    <span class="placeholder-custom">Zástupce</span>
+                </label>
+                <label class="btn-custom">
+                    <input type="text" id="delivery-street" required>
+                    <span class="placeholder-custom">Ulice a číslo</span>
+                </label>
+                <label class="btn-custom">
+                    <input type="text" id="delivery-psc" required>
+                    <span class="placeholder-custom">PSČ</span>
+                </label>
+                <label class="btn-custom">
+                    <input type="text" id="delivery-city" required>
+                    <span class="placeholder-custom">Obec</span>
+                </label>
+            </div>
+            <div class="subscribers">
+                <h3 class="invoice-subscriber-title m text-center">Odběratel</h3>
+                <label class="btn-custom">
+                    <input type="text" id="subscriberName" required>
+                    <span class="placeholder-custom">Jméno odběratele</span>
+                </label>
+                <label class="btn-custom">
+                    <input type="text" id="subscriber-street" required>
+                    <span class="placeholder-custom">Ulice a číslo</span>
+                </label>
+                <label class="btn-custom">
+                    <input type="text" id="subscriber-psc" required>
+                    <span class="placeholder-custom">PSČ</span>
+                </label>
+                <label class="btn-custom">
+                    <input type="text" id="subscriber-city" required>
+                    <span class="placeholder-custom">Obec</span>
+                </label>
+                <label class="btn-custom">
+                    <input type="text" id="subscriber-country" required>
+                    <span class="placeholder-custom">Země</span>
+                </label>
+                <label class="btn-custom">
+                    <input type="text" id="subscriber-ico" required>
+                    <span class="placeholder-custom">IČO</span>
+                </label>
+                <label class="btn-custom">
+                    <input type="text" id="subscriber-dic" required>
+                    <span class="placeholder-custom">DIČ</span>
+                </label>
+            </div>
+            <div class="invoice-body">
+                <h3 class="invoice-invoice-body-title m text-center">Tělo faktury</h3>
+                <label class="btn-custom">
+                    <input type="text" id="invoiceTitle" required>
+                    <span class="placeholder-custom">Nadpis</span>
+                </label>
+                <label class="btn-custom">
+                    <input type="text" id="salutation" required>
+                    <span class="placeholder-custom">Oslovení</span>
+                </label>
+                <label class="btn-custom">
+                    <input type="text" id="invoiceBody" required>
+                    <span class="placeholder-custom">Text faktury</span>
+                </label>
+                <label class="btn-custom">
+                    <input type="text" id="invoiceFooter" required>
+                    <span class="placeholder-custom">Zápatí</span>
+                </label>
+                <label class="btn-custom">
+                    <input type="text" id="myNote" required>
+                    <span class="placeholder-custom">Moje poznámka <span class="sm">(pouze informativní není zobrazena v tisku)</span></span>
+                </label>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer flex">
+            <p class="m">Copyright &copy; 2021</p>
+            <div class="footer-bar">
+                <nav>
+                    <ul>
+                        <li><a href="#">Vytvořit fakturu</a></li>
+                        <li><a href="#">Přehled faktur</a></li>
+                        <li><a href="#">Tisk faktury</a></li>
+                        <li><a href="#">Nastavení</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script src="./script.js"></script>
+    <title>Fakturky HoKo</title>
+</head>
+<body>
+    <header>
+        <div class="navigation flex">
+            <h1 class="title">Fakturky HoKo s.r.o.</h1>
+            <div class="navbar">
+                <nav>
+                    <ul>
+                        <li><a href="#">Záhlaví faktury</a></li>
+                        <li><a href="#">Položky faktury</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <section class="container">
+        <div class="invoice  grid-2-3">
+            <div class="invoice-heading">
+                <div class="document-data">
+                    <h3 class="documentNumber">Evidenční číslo dokladu</h3>
+                    <form action="getDocumentNumber" method="GET">
+                        <input type="text" name="documentId" id="documentId" placeholder="Číslo dokumentu">
+                    </form>
+                </div>
+                <div class="invoice-contractor">
+                    <form action="setInvoiceContractor" method="get">
+                        <label for="contractor-street">Ulice a číslo</label>
+                        <input type="text" name="street" id="contractor-street" placeholder="Ulice a číslo">
+                        <label for="contractor-psc">PSČ</label>
+                        <input type="text" name="psc" id="psc">
+                        <label for="contractor-city">Obec</label>
+                        <input type="text" name="city" id="contractor-city" placeholder="Obec">
+                        <label for="contractor-country">Země</label>
+                        <input type="text" name="country" id="contractor-country" placeholder="Země">
+                        <label for="contractor-ico">IČO</label>
+                        <input type="text" name="ico" id="contractor-ico">
+                        <label for="contractor-dic">DIČ</label>
+                        <input type="text" name="dic" id="contractor-dic" placeholder="DIČ">
+                    </form>
+                </div>
+            </div>
+            <div class="payment-data">
+                <div class="payment-detail">
+                    <form action="setPaymentData" method="POST">
+                        <label for="variableSymbol">Variabilní symbol</label>
+                        <input type="number" name="variableSymbol" id="variableSymbol" placeholder="Variabilní symbol">
+                        <label for="specificSymbol">Specifický symbol</label>
+                        <input type="number" name="specificSymbol" id="specificSymbol" placeholder="Specifický symbol">
+                        <label for="constantSymbol">Konstantní symbol</label>
+                        <input type="number" name="constantSymbol" id="constantSymbol" placeholder="Konstantní symbol">
+                        <label for="dateOfDocument">Datum vystavení dokladu</label>
+                        <input type="date" name="dateOfDocument" id="dateOfDocument" placeholder="Datum vystavení dokladu">
+                        <label for="dueDateOfDocument">Datum splatnosti dokladu</label>
+                        <input type="date" name="dueDateOfDocument" id="dueDateOfDocument" placeholder="Datum splatnosti dokladu">
+                        <label for="paymentType">Forma úhrady</label>
+                        <input type="search" name="paymentType" id="paymentType" placeholder="Forma úhrady">
+                        <label for="order">Objednávka</label>
+                        <input type="text" name="order" id="order" placeholder="Objednávka">
+                        <label for="myNote">Moje poznámka</label>
+                        <textarea name="myNote" id="myNote" cols="20" rows="10" placeholder="Poznámka se netiskne a slouží pouze pro lepší přehled ve fakturách!"></textarea>
+                    </form>
+                </div>
+                <div class="payment-qr-code" id="qr-code">
+                </div>
+            </div>
+            <div class="bank-connection">
+                <form action="setBankAccount" method="POST">
+                    <label for="bankNumber">Číslo účtu:</label>
+                    <input type="text" name="bankNumber" id="bankNumber" placeholder="Číslo účtu">
+                    <label for="bankCode">Kód banky:</label>
+                    <input type="search" name="bankCode" id="bankCode" placeholder="Kód banky">
+                </form>
+            </div>
+            <div class="delivery-address">
+                <form action="setDeliveryAddress" method="post">
+                    <label for="company">Firma</label>
+                    <input type="text" name="company" id="company" placeholder="Firma">
+                    <label for="deputy">Zástupce</label>
+                    <input type="text" name="deputy" id="deputy" placeholder="Zástupce">
+                    <label for="delivery-street">Ulice a číslo</label>
+                    <input type="text" name="street" id="delivery-street" placeholder="Ulice a číslo">
+                    <label for="delivery-psc">PSČ</label>
+                    <input type="text" name="psc" id="delivery-psc">
+                    <label for="delivery-city">Obec</label>
+                    <input type="text" name="city" id="delivery-city" placeholder="Obec">                        
+                </form>
+            </div>
+            <div class="subscribers">
+                <form action="setSubscriber" method="post">
+                    <label for="subscriberName">Jméno odběratele</label>
+                    <input type="text" name="subscriberName" id="subscriberName" placeholder="Jméno odběratele">
+                    <label for="subscriber-street">Ulice a číslo</label>
+                    <input type="text" name="street" id="subscriber-street" placeholder="Ulice a číslo">
+                    <label for="subscriber-psc">PSČ</label>
+                    <input type="text" name="psc" id="subscriber-psc">
+                    <label for="subscriber-city">Obec</label>
+                    <input type="text" name="city" id="subscriber-city" placeholder="Obec">
+                    <label for="subscriber-country">Země</label>
+                    <input type="text" name="country" id="subscriber-country" placeholder="Země">
+                    <label for="subscriber-ico">IČO</label>
+                    <input type="text" name="ico" id="subscriber-ico">
+                    <label for="subscriber-dic">DIČ</label>
+                    <input type="text" name="dic" id="subscriber-dic" placeholder="DIČ">
+                </form>
+            </div>
+            <div class="invoice-body">
+                <form action="" method="get">
+                    <label for="invoiceTitle">Nadpis</label>
+                    <input type="text" name="invoiceTitle" id="invoiceTitle" placeholder="Nadpis / Předmět">
+                    <label for="salutation">Oslovení</label>
+                    <input type="text" name="salutation" id="salutation" placeholder="Oslovení">
+                    <label for="invoiceBody">Text faktury</label>
+                    <textarea name="invoiceBody" id="invoiceBody" cols="30" rows="10" placeholder="Text faktury"></textarea>
+                    <label for="invoiceFooter">Zápatí</label>
+                    <textarea name="invoiceFooter" id="invoiceFooter" cols="30" rows="10" placeholder="Zápatí"></textarea>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer class="container">
+        <div class="footer flex">
+            <p>Copyright &copy; 2021</p>
+            <div class="footer-bar">
+                <nav>
+                    <ul>
+                        <li><a href="#">Záhlaví faktury</a></li>
+                        <li><a href="#">Položky faktury</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
