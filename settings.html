@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styleSettings.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script src="./script.js"></script>
+    <title>Fakturky KoHo</title>
+</head>
+<body>
+    <header>
+        <div class="navigation flex">
+            <h1 class="title xl">Fakturky KoHo s.r.o.</h1>
+            <div class="navbar">
+                <nav>
+                    <ul>
+                        <li><a href="./index.html">Přehled faktur</a></li>
+                        <li><a href="./index.html">Vytvořit fakturu</a></li>
+                        <li><a class="active" href="./invoiceTraining.html">Tisk faktury</a></li>
+                        <li><a href="./settings.html">Nastavení</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <section class="sub-navigation">
+        <div class="subnav flex-middle">
+            <nav>
+                <ul class="subnav-ul">
+                    <li><a id="basic-settings" onclick="addSubNavClass(this)" href="#">Základní nastavení</a></li>
+                    <li><a id="company-data" onclick="addSubNavClass(this)" href="#">Údaje firmy</a></li>
+                    <li><a id="bank-data" onclick="addSubNavClass(this)" href="#">Bankovní spojení</a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+    <section class="settings hidden basic-settings">
+        <h3 class="l text-center">Základní nastavení</h3>
+        <div class="bottom-line"></div>
+        <div class="container grid">
+            <div class="basic-settings-cb flex">
+                <label for="vat-rate">Sazba DPH</label>
+                <select name="vat-rate" id="vat-rate">
+                    <option value="choose">Vyber</option>
+                </select>
+            </div>
+            <div class="basic-settings-cb flex">
+                <label for="invoice-currency">Fakturovaná měna</label>
+                <select name="invoice-currency" id="invoice-currency">
+                    <option value="choose">Vyber</option>
+                </select>
+            </div>
+            <div class="basic-settings-cb flex">
+                <label for="invoice-due-date">Splatnost</label>
+                <select name="invoice-due-date" id="invoice-due-date">
+                    <option value="choose">Vyber</option>
+                </select>
+            </div>
+            <div class="basic-settings-cb flex">
+                <label for="round-final-amount-to">Zaokrouhlit částku na</label>
+                <select name="round-final-amount-to" id="round-final-amount-to">
+                    <option value="choose">Vyber</option>
+                </select>
+            </div>
+            <div class="basic-settings-cb flex">
+                <label for="price-display-format">Formát zobrazení ceny</label>
+                <select name="price-display-format" id="price-display-format">
+                    <option value="choose">Vyber</option>
+                </select>
+            </div>
+            <div class="basic-settings-cb flex">
+                <label for="accounting-year">Účetní rok</label>
+                <select name="accounting-year" id="accounting-year">
+                    <option value="choose">Vyber</option>
+                </select>
+            </div>
+            <div class="basic-settings-cb flex">
+                <label for="invoice-numbering">Systém číslování faktur</label>
+                <select name="invoice-numbering" id="invoice-numbering">
+                    <option value="choose">Vyber</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <section class="settings hidden company-data">
+        <h3 class="l text-center">Firemní údaje</h3>
+        <div class="bottom-line"></div>
+        <div class="container grid grid-2-3">
+            <div class="basic-company-data">
+                <div class="company-data-values flex">
+                    <label for="company-name">Název společnosti</label>
+                    <input type="text" class="input-text" required name="company-name" id="company-name">
+                </div>
+                <div class="company-data-values flex">
+                    <label for="company-street-registration-number">Ulice a číslo popisné</label>
+                    <input type="text" class="input-text" required name="company-street-registration-number" id="company-street-registration-number">
+                </div>
+                <div class="company-data-values flex">
+                    <label for="company-city">Město</label>
+                    <input type="text" class="input-text" required name="company-city" id="company-city">
+                </div>
+                <div class="company-data-values flex">
+                    <label for="company-psc">PSČ</label>
+                    <input type="text" class="input-text" required name="company-psc" id="company-psc">
+                </div>
+                <div class="company-data-values flex">
+                    <label for="company-country">Stát</label>
+                    <input type="text" class="input-text" required name="company-country" id="company-country">
+                </div>
+                <div class="company-data-values flex">
+                    <label for="company-ico">IČO</label>
+                    <input type="text" class="input-text" required name="company-ico" id="company-ico">
+                </div>
+                <div class="company-data-values flex">
+                    <label for="company-dic">DIČ</label>
+                    <input type="text" class="input-text" required name="company-dic" id="company-dic">
+                </div>
+                <div class="company-data-values flex">
+                    <label for="company-currency">Účetní měna</label>
+                    <input type="text" class="input-text" required name="company-currency" id="company-currency">
+                </div>
+            </div>
+            <div class="personal-company-data">
+                <div class="company-data-values flex">
+                    <label for="cell-phone-number-1">Telefon 1</label>
+                    <input type="text" class="input-text" required name="cell-phone-number-1" id="cell-phone-number-1">
+                </div>
+                <div class="company-data-values flex">
+                    <label for="cell-phone-number-2">Telefon 2</label>
+                    <input type="text" class="input-text" required name="cell-phone-number-2" id="cell-phone-number-2">
+                </div>
+                <div class="company-data-values flex">
+                    <label for="cell-phone-number-3">Telefon 3</label>
+                    <input type="text" class="input-text" required name="cell-phone-number-3" id="cell-phone-number-3">
+                </div>
+                <div class="company-data-values flex">
+                    <label for="company-fax">Fax</label>
+                    <input type="text" class="input-text" required name="company-fax" id="company-fax">
+                </div>
+                <div class="company-data-values flex">
+                    <label for="company-email">E-mail</label>
+                    <input type="text" class="input-text" required name="company-email" id="company-email">
+                </div>
+            </div>
+            <div class="company-data-logo">
+                <div class="company-data-values flex">
+                    <label for="company-logo">Firemní logo</label>
+                    <input type="file" name="" id="company-logo">
+                </div>
+            </div>
+            <div class="company-data-stamp">
+                <div class="company-data-values flex">
+                    <label for="company-stamp">Firemní razítko</label>
+                    <input type="file" name="" id="company-stamp">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="settings hidden bank-data">
+        <h3 class="l text-center">Bankovní spojení</h3>
+        <div class="bottom-line"></div>
+        <div class="container grid">
+            <div class="company-bank-data flex">
+                <label for="bank-account-number">Číslo bankovního účtu</label>
+                <input type="text" class="input-text" required name="bank-account-number" id="bank-account-number">
+            </div>
+            <div class="company-bank-data company-bank-data-cb flex">
+                <label for="bank-account-code">Číslo banky</label>
+                <select type="text" name="bank-account-code" id="bank-account-code">
+                    <option value="choose">Vyber</option>
+                </select>
+            </div>
+            <div class="company-bank-data company-bank-data-cb flex">
+                <label for="account-currency">Měna účtu</label>
+                <select name="account-currency" id="account-currency">
+                    <option value="choose">Vyber</option>
+                </select>
+            </div>
+            <div class="company-bank-data flex">
+                <label for="iban">IBAN</label>
+                <input type="text" class="input-text" required name="iban" id="iban">
+            </div>
+            <div class="company-bank-data flex">
+                <label for="swift">SWIFT</label>
+                <input type="text" class="input-text" required name="swift" id="swift">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer flex">
+            <p class="m">Copyright &copy; 2021</p>
+            <div class="footer-bar">
+                <nav>
+                    <ul>
+                        <li><a href="./index.html">Přehled faktur</a></li>
+                        <li><a href="./index.html">Vytvořit fakturu</a></li>
+                        <li><a href="./invoiceTraining.html">Tisk faktury</a></li>
+                        <li><a href="./settings.html">Nastavení</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

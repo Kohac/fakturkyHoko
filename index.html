@@ -7,25 +7,83 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <script src="./script.js"></script>
-    <title>Fakturky HoKo</title>
+    <title>Fakturky KoHo</title>
 </head>
 <body>
     <header>
         <div class="navigation flex">
-            <h1 class="title xl">Fakturky HoKo s.r.o.</h1>
+            <h1 class="title xl">Fakturky KoHo s.r.o.</h1>
             <div class="navbar">
                 <nav>
                     <ul>
-                        <li><a href="#">Vytvořit fakturu</a></li>
                         <li><a href="#">Přehled faktur</a></li>
+                        <li><a href="#">Vytvořit fakturu</a></li>
                         <li><a href="./invoiceTraining.html">Tisk faktury</a></li>
-                        <li><a href="#">Nastavení</a></li>
+                        <li><a href="./settings.html">Nastavení</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
-    <section class="container">
+    <section class="invoices-view container">
+        <h2 class="create-invoice-title xl text-center">Přehled faktur</h2>
+        <div class="invoice-view table">
+            <table class="table-invoice-view">
+                <tr>
+                    <th>Evidenční číslo</th>
+                    <th>Variabilní symbol</th>
+                    <th>Odběratel</th>
+                    <th>Datum vystavení</th>
+                    <th>Datum splatnosti</th>
+                    <th>Datum plnění</th>
+                    <th>Hodnota Faktury</th>
+                    <th>Poznámka</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>123</td>
+                    <td>vokurkz sro</td>
+                    <td>20.2.2020</td>
+                    <td>24.2.2020</td>
+                    <td>28.2.2020</td>
+                    <td>27 300Kc</td>
+                    <td>Tady jsem je slusne natahnul</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>123</td>
+                    <td>vokurkz sro</td>
+                    <td>20.2.2020</td>
+                    <td>24.2.2020</td>
+                    <td>28.2.2020</td>
+                    <td>27 300Kc</td>
+                    <td>Tady jsem je slusne natahnul</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>123</td>
+                    <td>vokurkz sro</td>
+                    <td>20.2.2020</td>
+                    <td>24.2.2020</td>
+                    <td>28.2.2020</td>
+                    <td>27 300Kc</td>
+                    <td>Tady jsem je slusne natahnul</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>123</td>
+                    <td>vokurkz sro</td>
+                    <td>20.2.2020</td>
+                    <td>24.2.2020</td>
+                    <td>28.2.2020</td>
+                    <td>27 300Kc</td>
+                    <td>Tady jsem je slusne natahnul</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+    <section class="create-invoice container">
+        <h2 class="create-invoice-title xl text-center">Vytvořit fakturu</h2>
         <div class="invoice  grid-4-3">
             <div class="document-data">
                 <h3 class="documentNumber text-center l">Evidenční číslo dokladu: </h3>
@@ -103,7 +161,7 @@
                     <span class="placeholder-custom">Kód banky</span>
                 </label>
                 <div class="payment-qr-code" id="qr-code">
-                    <img src="./qer.png" alt="">
+                    <!-- <img src="./qer.png" alt=""> -->
                 </div>
             </div>
             <div class="delivery-address">
@@ -191,10 +249,10 @@
             <div class="footer-bar">
                 <nav>
                     <ul>
-                        <li><a href="#">Vytvořit fakturu</a></li>
                         <li><a href="#">Přehled faktur</a></li>
-                        <li><a href="#">Tisk faktury</a></li>
-                        <li><a href="#">Nastavení</a></li>
+                        <li><a href="#">Vytvořit fakturu</a></li>
+                        <li><a href="./invoiceTraining.html">Tisk faktury</a></li>
+                        <li><a href="./settings.html">Nastavení</a></li>
                     </ul>
                 </nav>
             </div>

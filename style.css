@@ -13,6 +13,9 @@
     margin: 0;
     padding: 0;
 }
+h2{
+    color: var(--primary-color);
+}
 .container{
     /* background-color: var(--light-bg-color); */
 }
@@ -49,7 +52,6 @@
     white-space: nowrap;
     left: 13px;
     top: 10px;
-    /* top: calc(50%); */
     transform: translateY(-50%);
     color: #fff;
     transition: top 0.4s ease,
@@ -141,7 +143,7 @@ label{
 /* Invoice */
 .grid-4-3{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 1em;
     /* grid-template-areas: ; */
     /* grid-template-rows: 3; */
@@ -153,7 +155,7 @@ label{
     margin-bottom: 20px;
 }
 .invoice .document-data{
-    grid-column: 1 / span 4;
+    grid-column: 1 / span 5;
     text-align: center;
     padding: 0.40em 0.75em;
 }
@@ -174,6 +176,22 @@ label{
     width: 100%;
 }
 /* qr code */
+/* Invoice view */
+.invoices-view{
+    max-width: 1200px;
+    margin: auto;
+}
+.table-invoice-view{
+    width: 100%;
+    border: 1px solid black;
+}
+.table-invoice-view tr:nth-child(even){
+    background-color: #ddd;
+}
+.table-invoice-view tr:first-child{
+
+}
+/* Invoice view */
 /* Footer */
 .footer{
     background-color: var(--primary-bg-color);
