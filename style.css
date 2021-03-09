@@ -3,6 +3,7 @@
     --primary-bg-color:#29524A;
     --primary-color:#FFBD00;
     --light-bg-color:#D69F7E;
+    --table-header-color:#61892f;
 }
 *,
 *::before,
@@ -143,7 +144,7 @@ label{
 /* Invoice */
 .grid-4-3{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1em;
     /* grid-template-areas: ; */
     /* grid-template-rows: 3; */
@@ -155,7 +156,7 @@ label{
     margin-bottom: 20px;
 }
 .invoice .document-data{
-    grid-column: 1 / span 5;
+    grid-column: 1 / span 4;
     text-align: center;
     padding: 0.40em 0.75em;
 }
@@ -180,18 +181,179 @@ label{
 .invoices-view{
     max-width: 1200px;
     margin: auto;
+    /* margin-top: 25px; */
+    margin-bottom: 50px;
+    animation: slideTop 1s ease-out;
+    background-color: #fff;
+}
+@keyframes slideTop{
+    0%{
+        transform: translateY(100%);
+    }
+    100%{
+        transform: translateY(0);
+    }
 }
 .table-invoice-view{
     width: 100%;
-    border: 1px solid black;
+    border-collapse: collapse;
+    /* border: 1px solid black; */
 }
 .table-invoice-view tr:nth-child(even){
-    background-color: #ddd;
+    background-color: rgb(242, 239, 239);
 }
 .table-invoice-view tr:first-child{
-
+    background-color: var(--table-header-color);
+    color: #fff;
+    height: 60px;
+}
+.table-invoice-view tr td,
+.table-invoice-view tr th{
+    border: solid 1px #fff;
+    margin: 0;
+    padding: 3px 8px;
+    text-align: left;
+}
+.table-invoice-view tr:not(:first-child):hover td{
+    border: solid 1px rgb(221, 221, 221);
+    background-color: rgb(221, 221, 221);
 }
 /* Invoice view */
+
+/* My modal */
+#my-modal{
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.75);
+    z-index: 1000;
+    animation: slideLeft 0.4s ease-in-out;
+}
+@keyframes slideLeft{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+.modal-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.close{
+    /* padding: 8px 15px; */
+    font-size: 4em;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 2.5%;
+    color: #fff;
+}
+/* My modal */
+/* create invoice modal */
+.create-invoice{
+    /* display: none; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    /* height: 200%; */
+    background-color: rgba(0,0,0,1);
+    background-color: rgba(0,0,0,0.9);
+    z-index: 1;
+    /* cursor: pointer; */
+    color: white;
+    padding: 2em 0;
+    animation: popUp 0.7s ease-out;
+    z-index: 1;
+}
+@keyframes popUp{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.post-invoice{
+    grid-column: 1 / span 4;
+}
+.btn{
+    width: 100%;
+    border: none;
+    outline: none;
+    overflow: auto;
+    padding: 12px 12px;
+    background-color: var(--table-header-color);
+    color: #fff;
+    font-size: 20px;
+}
+.btn:hover{
+    transform: scaleY(1.1);
+    transform: scaleX(1.01);
+    font-weight: bold;
+}
+.textarea-custom{
+    position: relative;
+    font-size: 16px;
+}
+.textarea-custom textarea{
+    padding: 12px 12px;
+    width: 100%;
+    border: 2px solid #fff;
+    outline: none;
+    background-color: #aaa;
+    margin-top: 4px;
+    width: 100%;
+    height: 108px;
+}
+.textarea-placeholder-custom{
+    position: absolute;
+    white-space: nowrap;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.textarea-custom textarea:focus,
+.textarea-custom textarea:valid{
+    background:#fff;
+}
+.textarea-custom textarea:focus + .textarea-placeholder-custom,
+.textarea-custom textarea:valid + .textarea-placeholder-custom{
+    top: 8px;
+    font-size: 12px;
+    background-color: #fff;
+    color: #222;
+    border: none;
+    outline: none;
+    padding: 0 5px;
+}
+#my-modal select{
+    background-color: var(--primary-bg-color);
+    outline: none;
+    border: none;
+    height: 44px;
+    width: 100%;
+    color: #fff;
+    margin: 12px 0;
+    padding: 0 12px;
+    font-size: 18px;
+}
+/* create invoice modal */
+
+
 /* Footer */
 .footer{
     background-color: var(--primary-bg-color);
