@@ -17,11 +17,11 @@
 h2{
     color: var(--primary-color);
 }
-.container{
-    /* background-color: var(--light-bg-color); */
-}
 .sm{
     font-size: 12px;
+}
+.s{
+    font-size: 1.2em;
 }
 .m{
     font-size: 2em;
@@ -40,7 +40,7 @@ h2{
     font-size: 16px;
 }
 .btn-custom input{
-    padding: 12px 12px;
+    padding: 4px 12px;
     width: 100%;
     border: 2px solid #fff;
     outline: none;
@@ -62,7 +62,7 @@ h2{
 }
 .btn-custom input:focus + .placeholder-custom,
 .btn-custom input:valid + .placeholder-custom{
-    top: -12px;
+    top: -5px;
     left: 9px;
     font-size: 12px;
     color: var(--primary-bg-color);
@@ -84,6 +84,90 @@ h2{
         background-color: #fff;
     }
 }
+@keyframes slideLeft{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+@keyframes slideRight{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+/* text area and buttons */
+.btn{
+    width: 100%;
+    border: none;
+    outline: none;
+    overflow: auto;
+    padding: 12px 12px;
+    background-color: var(--table-header-color);
+    color: #fff;
+    font-size: 20px;
+}
+.btn-items{
+    width: 100%;
+    border: none;
+    outline: none;
+    overflow: auto;
+    padding: 0px 12px;
+    background-color: var(--table-header-color);
+    color: #fff;
+    height: 34px;
+    font-size: 16px;
+    margin: 0;
+}
+.btn:hover{
+    transform: scaleY(1.1);
+    transform: scaleX(1.01);
+    font-weight: bold;
+}
+.textarea-custom{
+    position: relative;
+    font-size: 16px;
+}
+.textarea-custom textarea{
+    padding: 10px 12px;
+    width: 100%;
+    border: 2px solid #fff;
+    outline: none;
+    background-color: #aaa;
+    margin-top: 4px;
+    width: 100%;
+    height: 76px;
+}
+.textarea-placeholder-custom{
+    position: absolute;
+    white-space: nowrap;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.textarea-custom textarea:focus,
+.textarea-custom textarea:valid{
+    background:#fff;
+}
+.textarea-custom textarea:focus + .textarea-placeholder-custom,
+.textarea-custom textarea:valid + .textarea-placeholder-custom{
+    top: 8px;
+    font-size: 12px;
+    background-color: #fff;
+    color: #222;
+    border: none;
+    outline: none;
+    padding: 0 5px;
+}
+
+/* text area and buttons */
 /* .btn{
     display: block;
     width: 100%;
@@ -162,7 +246,8 @@ label{
 }
 
 .invoice-body{
-    grid-column: 2 / span 3;
+    grid-column: 1 / span 3;
+    position: relative;
 }
 /* Invoice */
 /* qr code */
@@ -219,34 +304,46 @@ label{
     background-color: rgb(221, 221, 221);
 }
 /* Invoice view */
-
+/* invoice items */
+.invoice-body-items{
+    max-height: 25px;
+    position: relative;
+}
+/* invoice items */
 /* My modal */
+.subscribers{
+    position: relative;
+}
 #my-modal{
     display: none;
     position: absolute;
-    bottom: 0;
-    left: 0;
+    /* bottom: 0; */
+    top: 0;
+    /* left: 0; */
     right: 0;
-    width: 50%;
-    height: 50%;
+    width: 210%;
+    height: 100%;
     background-color: rgba(0,0,0,0.7);
     background-color: rgba(0,0,0,0.75);
     z-index: 1000;
-    animation: slideLeft 0.4s ease-in-out;
-}
-@keyframes slideLeft{
-    0%{
-        transform: translateX(-100%);
-    }
-    100%{
-        transform: translateX(0);
-    }
+    animation: slideRight 0.4s ease-in-out;
 }
 .modal-content{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+#my-modal select{
+    background-color: var(--primary-bg-color);
+    outline: none;
+    border: none;
+    height: 44px;
+    width: 100%;
+    color: #fff;
+    margin: 12px 0;
+    padding: 0 12px;
+    font-size: 18px;
 }
 .close{
     /* padding: 8px 15px; */
@@ -287,72 +384,118 @@ label{
 .post-invoice{
     grid-column: 1 / span 4;
 }
-.btn{
-    width: 100%;
-    border: none;
-    outline: none;
+
+/* create invoice modal */
+/* Drag and icon styling */´
+.flex-end{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 40px;
     overflow: auto;
-    padding: 12px 12px;
-    background-color: var(--table-header-color);
-    color: #fff;
-    font-size: 20px;
 }
-.btn:hover{
-    transform: scaleY(1.1);
-    transform: scaleX(1.01);
-    font-weight: bold;
+.drag-section p{
+    margin-top: 0;
+    margin-bottom: 8px;
 }
-.textarea-custom{
+.drag-section{
+    font-size: 1.2em;
+    column-count: 2;
+    margin: 0;
+    margin-bottom: 80px;
+}
+.drag-section > p{
+    /* margin: 10px 3px; */
+    padding: 0 10px;
+    cursor: pointer;
+    border: 1px solid #fff;
+}
+
+.icon::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    cursor: pointer;
+    text-align: right;
+    font-size: 1.2em;
+}
+
+#i-subscribers::before {
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 900; 
+    content: "\f2bb";
+  }
+/* Drag and icon styling */
+/* Select styling */
+.multiselect{
+    width: 100%;
+    margin: 5px 0;
+    /* max-height: 50px; */
+    /* height: 50px; */
+}
+.select-box{
     position: relative;
-    font-size: 16px;
+    animation: scaleItems 0.5s ease;
 }
-.textarea-custom textarea{
-    padding: 12px 12px;
-    width: 100%;
-    border: 2px solid #fff;
-    outline: none;
-    background-color: #aaa;
-    margin-top: 4px;
-    width: 100%;
-    height: 108px;
-}
-.textarea-placeholder-custom{
+.over-select{
     position: absolute;
-    white-space: nowrap;
-    top: 50%;
-    left: 12px;
-    transform: translateY(-50%);
-    pointer-events: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
-.textarea-custom textarea:focus,
-.textarea-custom textarea:valid{
-    background:#fff;
-}
-.textarea-custom textarea:focus + .textarea-placeholder-custom,
-.textarea-custom textarea:valid + .textarea-placeholder-custom{
-    top: 8px;
-    font-size: 12px;
-    background-color: #fff;
-    color: #222;
-    border: none;
-    outline: none;
-    padding: 0 5px;
-}
-#my-modal select{
+.multiselect select{
+    width: 100%;
     background-color: var(--primary-bg-color);
     outline: none;
     border: none;
-    height: 44px;
-    width: 100%;
     color: #fff;
-    margin: 12px 0;
-    padding: 0 12px;
-    font-size: 18px;
+    height: 34px;
+    padding-left: 12px;
+    margin-bottom: 4px;
 }
-/* create invoice modal */
+#checkboxes {
+    margin-top: 0;
+    display: none;
+    border: 1px #dadada solid;
+    animation: scaleItem 0.5s ease;
+    overflow: auto;
+}
+#checkboxes::-webkit-scrollbar{
+    width: 15px;
+}
+@keyframes scaleItem{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+#checkboxes label{
+    display: block;
+}
+/* Select styling */
+/* scrollbar */
+::-webkit-scrollbar{
+    width: 20px;
+    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.75);
+}
+::-webkit-scrollbar-track{
+    border-radius: 10px; 
+    box-shadow: inset 0 0 10px grey;
 
+}
+::-webkit-scrollbar-thumb{
+    background: var(--table-header-color);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-button{
+    display: none;
+}
+/* scrollbar */
 
 /* Footer */
 .footer{

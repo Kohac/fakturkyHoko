@@ -1,6 +1,5 @@
 window.onload = function hideAndShowElements() {
     document.getElementsByClassName("create-invoice")[0].style.display = "none";
-    var select = document.getElementsByClassName("select-subscribers")[0];
     var subscribersModal = document.getElementById("my-modal");
     var iconOpenModal = document.getElementById("i-subscribers");
     iconOpenModal.onclick = function openModal() {
@@ -10,23 +9,12 @@ window.onload = function hideAndShowElements() {
     close.onclick = function closemodalek() {
         subscribersModal.style.display = "none";
     }
-    // close.onclick = function close() {
-    //     const modal = document.getElementById("my-modal").style.display = "none";
-    // }
-
-
-    // const cc = document.getElementsByClassName("create-invoice")[0];
-    // cc.onclick = function close() {
-    //     // cc.style.display = "none";
-    // }
 }
-
-
-function closeModal(element) {
+function closeInvoice(element) {
     const modal = document.getElementsByClassName("create-invoice")[0];
     modal.style.display = "none";
 }
-function openModal() {
+function openInvoice() {
     // const modal = document.getElementById("my-modal");
     // modal.style.display = "block";
     const modal = document.getElementsByClassName("create-invoice")[0];
@@ -50,3 +38,28 @@ function onDrop(element){
     element.target.value += getTransferedElement.innerHTML;
 }
 // END drag and drop section
+
+// list box
+function countMaxHeight() {
+    let title = document.getElementsByClassName("invoice-subscriber-title")[0];
+    let btn = document.getElementsByClassName("btn-items")[0];
+    let minusHeight = title.offsetHeight + btn.offsetHeight + 50;
+    let invoiceBodyHeight = document.getElementsByClassName("invoice-body")[0];
+    let multiSelect = document.getElementById("checkboxes");
+    let finalValue = invoiceBodyHeight.offsetHeight - minusHeight;
+    multiSelect.style.maxHeight = finalValue + "px";
+    console.log(invoiceBodyHeight.offsetHeight + "wtf " + minusHeight);
+}
+var expanded = false;
+function showCheckboxes() {
+  countMaxHeight()
+  var checkboxes = document.getElementById("checkboxes");
+  if (!expanded) {
+    checkboxes.style.display = "block";
+    expanded = true;
+  } else {
+    checkboxes.style.display = "none";
+    expanded = false;
+  }
+}
+// end of list box

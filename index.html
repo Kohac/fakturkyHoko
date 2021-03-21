@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <script src="./indexScript.js"></script>
-    <link rel="stylesheet" href="styleTrain.css">
+    <!-- <link rel="stylesheet" href="styleTrain.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <title>Fakturky KoHo</title>
 </head>
@@ -19,7 +19,7 @@
                 <nav>
                     <ul>
                         <li><a href="#">Přehled faktur</a></li>
-                        <li><a onclick="openModal()" href="#">Vytvořit fakturu</a></li>
+                        <li><a onclick="openInvoice()" href="#">Vytvořit fakturu</a></li>
                         <!-- <li><a href="./invoiceTraining.html">Tisk faktury</a></li> -->
                         <li><a href="./settings.html">Nastavení</a></li>
                     </ul>
@@ -115,17 +115,16 @@
         </div>
     </section>
     <section class="create-invoice container">
-        <div class="flex-end">
-            <span onclick="closeModal(event)" class="close">&times;</span>
+            <span onclick="closeInvoice(event)" class="close">&times;</span>
             <div class="grid-view">
-                <h2 class="create-invoice-title xl text-center">Vytvořit fakturu</h2>
+                <h2 class="create-invoice-title m text-center">Vytvořit fakturu</h2>
                 <div class="invoice grid-4-3">
                     <div class="document-data">
-                        <h3 class="documentNumber text-center l">Evidenční číslo dokladu: </h3>
+                        <h3 class="documentNumber text-center s">Evidenční číslo dokladu: </h3>
                     </div>
                     <div class="invoice-heading">
                         <div class="invoice-contractor">
-                            <h3 class="invoice-contractor-title m text-center">Dodavatel</h3>
+                            <h3 class="invoice-contractor-title s text-center">Dodavatel</h3>
                             <label class="btn-custom">
                                 <input type="text" id="contractor-street" required>
                                 <span class="placeholder-custom">Ulice a číslo</span>
@@ -154,7 +153,7 @@
                     </div>
                     <div class="payment-data">
                         <div class="payment-detail">
-                            <h3 class="invoice-payment-detail-title m text-center">Platební údaje</h3>
+                            <h3 class="invoice-payment-detail-title s text-center">Platební údaje</h3>
                             <label class="btn-custom">
                                 <input type="text" id="variableSymbol" required>
                                 <span class="placeholder-custom">Variabilní symbol</span>
@@ -185,8 +184,8 @@
                             </label>
                         </div>
                     </div>
-                    <div class="bank-connection">
-                        <h3 class="invoice-bank-connection-title m text-center">Bankovní spojení</h3>
+                    <!-- <div class="bank-connection">
+                        <h3 class="invoice-bank-connection-title s text-center">Bankovní spojení</h3>
                         <label class="btn-custom">
                             <input type="text" id="bankNumber" required>
                             <span class="placeholder-custom">Číslo bankovního účtu</span>
@@ -196,11 +195,10 @@
                             <span class="placeholder-custom">Kód banky</span>
                         </label>
                         <div class="payment-qr-code" id="qr-code">
-                            <!-- <img src="./qer.png" alt=""> -->
                         </div>
-                    </div>
+                    </div> -->
                     <div class="delivery-address">
-                        <h3 class="invoice-delivery-address-title m text-center">Adresa dodání</h3>
+                        <h3 class="invoice-delivery-address-title s text-center">Adresa dodání</h3>
                         <label class="btn-custom">
                             <input type="text" id="delivery-company" required>
                             <span class="placeholder-custom">Firma</span>
@@ -224,7 +222,7 @@
                     </div>
                     <div class="subscribers">
                         <div class="subscribers-title flex">
-                            <h3 class="invoice-subscriber-title m text-center">Odběratel</h3>
+                            <h3 class="invoice-subscriber-title s text-center">Odběratel</h3>
                             <div class="subscribers-icon">
                                 <i id="i-subscribers" class="icon"></i>
                             </div>
@@ -267,7 +265,7 @@
                         </div>
                     </div>
                     <div class="invoice-body">
-                        <h3 class="invoice-invoice-body-title m text-center">Tělo faktury</h3>
+                        <h3 class="invoice-invoice-body-title s text-center">Tělo faktury</h3>
                         <label class="btn-custom">
                             <input type="text" id="invoiceTitle" required>
                             <span class="placeholder-custom">Nadpis</span>
@@ -282,7 +280,7 @@
                         </label> -->
                         <div class="textarea-custom">
                             <textarea id="invoice-text" ondrop="onDrop(event)" ondragover="allowDrop(event)" name="invoice-text" required></textarea>
-                            <span class="textarea-placeholder-custom">Text faktury</span></span>
+                            <span class="textarea-placeholder-custom">Text faktury</span>
                         </div>
                         <label class="btn-custom">
                             <input type="text" id="invoiceFooter" required>
@@ -290,11 +288,39 @@
                         </label>
                         <!-- <label class="btn-custom">
                             <input type="text" id="myNote" required>
-                            <span class="placeholder-custom">Moje poznámka <span class="sm">(pouze informativní není zobrazena v tisku)</span></span>
+                            <span class="placeholder-custom">Moje poznámka <span class="sm">(pouze informativní není zobrazena v tisku)</span>
                         </label> -->
                         <div class="textarea-custom">
                             <textarea name="my-note" id="my-note" required></textarea>
-                            <span class="textarea-placeholder-custom">Moje poznámka <span class="sm">(pouze informativní není zobrazena v tisku)</span></span>
+                            <span class="textarea-placeholder-custom">Moje poznámka <span class="sm">(pouze informativní není zobrazena v tisku)</span>
+                        </div>
+                    </div>
+                    <div class="invoice-body-items">
+                        <h3 class="invoice-subscriber-title s text-center">Seznam položek faktury</h3>
+                        <div class="invoice-items">
+                            <div class="multiselect">
+                                <div class="select-box" onclick="showCheckboxes()">
+                                    <select name="invoice-items" id="invoice-items">
+                                        <option value="select an option">Vyber</option>
+                                    </select>
+                                    <div class="over-select"></div>
+                                </div>
+                                <div id="checkboxes">
+                                    <label for="one"><input type="checkbox" name="one" id="one">First item</label>
+                                    <label for="two"><input type="checkbox" name="two" id="two">Second item</label>
+                                    <label for="three"><input type="checkbox" name="three" id="three">Third item</label>
+                                    <label for="four"><input type="checkbox" name="four" id="four">Fourth item</label>
+                                    <label for="one"><input type="checkbox" name="one" id="one">First item</label>
+                                    <label for="two"><input type="checkbox" name="two" id="two">Second item</label>
+                                    <label for="three"><input type="checkbox" name="three" id="three">Third item</label>
+                                    <label for="four"><input type="checkbox" name="four" id="four">Fourth item</label>
+                                    <label for="one"><input type="checkbox" name="one" id="one">First item</label>
+                                    <label for="two"><input type="checkbox" name="two" id="two">Second item</label>
+                                    <label for="three"><input type="checkbox" name="three" id="three">Third item</label>
+                                    <label for="four"><input type="checkbox" name="four" id="four">Fourth item</label>
+                                </div>
+                            </div>
+                            <button class="btn-items">Zvolit odběratele</button>
                         </div>
                     </div>
                     <div class="post-invoice">
@@ -302,17 +328,6 @@
                     </div>
                 </div>
             </div>
-            <div class="drag-section">
-                <p draggable="true" ondragstart="onDrag(event)" class="item-1">item text 1</p>
-                <p draggable="true" ondragstart="onDrag(event)" class="item-2">item text 2</p>
-                <p draggable="true" ondragstart="onDrag(event)" class="item-3">item text 3</p>
-                <p draggable="true" ondragstart="onDrag(event)" class="item-4">item text 4</p>
-                <p draggable="true" ondragstart="onDrag(event)" class="item-5">item text 5</p>
-                <p draggable="true" ondragstart="onDrag(event)" class="item-6">item text 6</p>
-                <p draggable="true" ondragstart="onDrag(event)" class="item-7">item text 7</p>
-                <p draggable="true" ondragstart="onDrag(event)" class="item-8">item text 8</p>
-            </div>
-        </div>
     </section>
     <!-- <section class="modal"> -->
         <!-- <div id="my-modal">
@@ -331,7 +346,7 @@
                     <ul>
                         <li><a href="#">Přehled faktur</a></li>
                         <li><a href="#">Vytvořit fakturu</a></li>
-                        <li><a href="./invoiceTraining.html">Tisk faktury</a></li>
+                        <!-- <li><a href="./invoiceTraining.html">Tisk faktury</a></li> -->
                         <li><a href="./settings.html">Nastavení</a></li>
                     </ul>
                 </nav>

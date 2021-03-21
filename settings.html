@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <script src="./script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <title>Fakturky KoHo</title>
 </head>
 <body>
@@ -17,9 +18,8 @@
                 <nav>
                     <ul>
                         <li><a href="./index.html">Přehled faktur</a></li>
-                        <li><a href="./index.html">Vytvořit fakturu</a></li>
-                        <li><a class="active" href="./invoiceTraining.html">Tisk faktury</a></li>
-                        <li><a href="./settings.html">Nastavení</a></li>
+                        <!-- <li><a href="./index.html">Vytvořit fakturu</a></li> -->
+                        <li><a class="active" href="./settings.html">Nastavení</a></li>
                     </ul>
                 </nav>
             </div>
@@ -31,7 +31,9 @@
                 <ul class="subnav-ul">
                     <li><a id="basic-settings" onclick="addSubNavClass(this)" href="#">Základní nastavení</a></li>
                     <li><a id="company-data" onclick="addSubNavClass(this)" href="#">Údaje firmy</a></li>
+                    <li><a id="subscribers" onclick="addSubNavClass(this)" href="#">Seznam odběratelů</a></li>
                     <li><a id="bank-data" onclick="addSubNavClass(this)" href="#">Bankovní spojení</a></li>
+                    <li><a id="invoice-items" onclick="addSubNavClass(this)" href="#">Položky faktury</a></li>
                 </ul>
             </nav>
         </div>
@@ -82,6 +84,9 @@
                     <option value="choose">Vyber</option>
                 </select>
             </div>
+            <div class="btns">
+                <input class="btn" type="button" value="Uložit základní nastavení">
+            </div>
         </div>
     </section>
 
@@ -92,70 +97,73 @@
             <div class="basic-company-data">
                 <div class="company-data-values flex">
                     <label for="company-name">Název společnosti</label>
-                    <input type="text" class="input-text" required name="company-name" id="company-name">
+                    <input type="text" class="input-text" required name="company-name" placeholder="Název společnosti" id="company-name">
                 </div>
                 <div class="company-data-values flex">
                     <label for="company-street-registration-number">Ulice a číslo popisné</label>
-                    <input type="text" class="input-text" required name="company-street-registration-number" id="company-street-registration-number">
+                    <input type="text" class="input-text" required name="company-street-registration-number" placeholder="Ulice a číslo popisné" id="company-street-registration-number">
                 </div>
                 <div class="company-data-values flex">
                     <label for="company-city">Město</label>
-                    <input type="text" class="input-text" required name="company-city" id="company-city">
+                    <input type="text" class="input-text" required name="company-city" placeholder="Město" id="company-city">
                 </div>
                 <div class="company-data-values flex">
                     <label for="company-psc">PSČ</label>
-                    <input type="text" class="input-text" required name="company-psc" id="company-psc">
+                    <input type="text" class="input-text" required name="company-psc" placeholder="PSČ" id="company-psc">
                 </div>
                 <div class="company-data-values flex">
                     <label for="company-country">Stát</label>
-                    <input type="text" class="input-text" required name="company-country" id="company-country">
+                    <input type="text" class="input-text" required name="company-country" placeholder="Stát" id="company-country">
                 </div>
                 <div class="company-data-values flex">
                     <label for="company-ico">IČO</label>
-                    <input type="text" class="input-text" required name="company-ico" id="company-ico">
+                    <input type="text" class="input-text" required name="company-ico" placeholder="IČO" id="company-ico">
                 </div>
                 <div class="company-data-values flex">
                     <label for="company-dic">DIČ</label>
-                    <input type="text" class="input-text" required name="company-dic" id="company-dic">
+                    <input type="text" class="input-text" required name="company-dic" placeholder="DIČ" id="company-dic">
                 </div>
                 <div class="company-data-values flex">
                     <label for="company-currency">Účetní měna</label>
-                    <input type="text" class="input-text" required name="company-currency" id="company-currency">
+                    <input type="text" class="input-text" required name="company-currency" placeholder="Účetní měna" id="company-currency">
                 </div>
             </div>
             <div class="personal-company-data">
                 <div class="company-data-values flex">
                     <label for="cell-phone-number-1">Telefon 1</label>
-                    <input type="text" class="input-text" required name="cell-phone-number-1" id="cell-phone-number-1">
+                    <input type="text" class="input-text" required name="cell-phone-number-1" placeholder="Telefon 1" id="cell-phone-number-1">
                 </div>
                 <div class="company-data-values flex">
                     <label for="cell-phone-number-2">Telefon 2</label>
-                    <input type="text" class="input-text" required name="cell-phone-number-2" id="cell-phone-number-2">
+                    <input type="text" class="input-text" required name="cell-phone-number-2" placeholder="Telefon 2" id="cell-phone-number-2">
                 </div>
                 <div class="company-data-values flex">
                     <label for="cell-phone-number-3">Telefon 3</label>
-                    <input type="text" class="input-text" required name="cell-phone-number-3" id="cell-phone-number-3">
+                    <input type="text" class="input-text" required name="cell-phone-number-3" placeholder="Telefon 3" id="cell-phone-number-3">
                 </div>
                 <div class="company-data-values flex">
                     <label for="company-fax">Fax</label>
-                    <input type="text" class="input-text" required name="company-fax" id="company-fax">
+                    <input type="text" class="input-text" required name="company-fax" placeholder="Fax" id="company-fax">
                 </div>
                 <div class="company-data-values flex">
                     <label for="company-email">E-mail</label>
-                    <input type="text" class="input-text" required name="company-email" id="company-email">
+                    <input type="text" class="input-text" required name="company-email" placeholder="E-mail" id="company-email">
                 </div>
             </div>
             <div class="company-data-logo">
                 <div class="company-data-values flex">
                     <label for="company-logo">Firemní logo</label>
-                    <input type="file" name="" id="company-logo">
+                    <input type="file" class="input-file" name="company-logo" id="company-logo">
                 </div>
             </div>
             <div class="company-data-stamp">
                 <div class="company-data-values flex">
                     <label for="company-stamp">Firemní razítko</label>
-                    <input type="file" name="" id="company-stamp">
+                    <input type="file" class="input-file" name="company-stamp" id="company-stamp">
                 </div>
+            </div>
+            <div class="btns">
+                <input class="btn" type="button" value="Uložit firemní údaje">
             </div>
         </div>
     </section>
@@ -166,7 +174,7 @@
         <div class="container grid">
             <div class="company-bank-data flex">
                 <label for="bank-account-number">Číslo bankovního účtu</label>
-                <input type="text" class="input-text" required name="bank-account-number" id="bank-account-number">
+                <input type="text" class="input-text" required name="bank-account-number" id="bank-account-number" placeholder="Číslo bankovního účtu">
             </div>
             <div class="company-bank-data company-bank-data-cb flex">
                 <label for="bank-account-code">Číslo banky</label>
@@ -182,15 +190,229 @@
             </div>
             <div class="company-bank-data flex">
                 <label for="iban">IBAN</label>
-                <input type="text" class="input-text" required name="iban" id="iban">
+                <input type="text" class="input-text" required name="iban" id="iban" placeholder="IBAN">
             </div>
             <div class="company-bank-data flex">
                 <label for="swift">SWIFT</label>
-                <input type="text" class="input-text" required name="swift" id="swift">
+                <input type="text" class="input-text" required name="swift" id="swift" placeholder="SWIFT">
+            </div>
+            <div class="btns">
+                <input class="btn" type="button" value="Uložit bankovní spojení">
             </div>
         </div>
     </section>
 
+    <section class="settings hidden subscribers">
+        <h3 class="l text-center">Seznam odběratelů</h3>
+        <div class="bottom-line"></div>
+        <div class="container grid">
+            <div class="subscriber-data flex">
+                <label for="subscriber-name">Jméno odběratele</label>
+                <input type="text" class="input-text" required name="subscriber-name" id="subscriber-name" placeholder="Jméno odběratele">
+            </div>
+            <div class="subscriber-data flex">
+                <label for="subscriber-street">Ulice a číslo popisné</label>
+                <input type="text" class="input-text" required name="subscriber-street" id="subscriber-street" placeholder="Ulice a číslo popisné">
+            </div>
+            <div class="subscriber-data flex">
+                <label for="subscriber-psc">PSČ</label>
+                <input type="text" class="input-text" required name="subscriber-psc" id="subscriber-psc" placeholder="PSČ">
+            </div>
+            <div class="subscriber-data flex">
+                <label for="subsriber-district">Obec</label>
+                <input type="text" class="input-text" required name="subsriber-district" id="subsriber-district" placeholder="Ulice a číslo popisné">
+            </div>
+            <div class="subscriber-data flex">
+                <label for="subscriber-country">Země</label>
+                <input type="text" class="input-text" required name="subscriber-country" id="subscriber-country" placeholder="Země">
+            </div>
+            <div class="subscriber-data flex">
+                <label for="subsriber-ico">IČO</label>
+                <input type="text" class="input-text" required name="subsriber-ico" id="subsriber-ico" placeholder="IČO">
+            </div>
+            <div class="subscriber-data flex">
+                <label for="subscriber-dic">DIČ</label>
+                <input type="text" class="input-text" required name="subscriber-dic" id="subscriber-dic" placeholder="DIČ">
+            </div>
+            <div class="btns">
+                <input class="btn" type="button" value="Uložit odběratele">
+            </div>
+        </div>
+        <div class="subscribers-dropdown">
+            <input type="button" onclick="dropdownHideOrShowSection(this, 'i-arrow-down-left-subscribers', 'i-arrow-down-right-subscribers')" value="Zobrazit seznam odběratelů" class="subscribers-dropbtn" id="subscribers-dropbtn">
+            <div id="subscribers-dropdown-content">
+                <div class="input-container">
+                    <input type="text" name="filter-dropdown" id="subscribers-filter-dropdown" onkeyup="filterDropDown()" placeholder="Hledej...">
+                <i class="icon" id="i-search"></i>
+                </div>
+                <div class="table-container">
+                    <a href="#">ahojky</a>
+                    <a href="#">ahojky</a>
+                    <a href="#">ahojky</a>
+                    <a href="#">ahojky</a>
+                    <a href="#">ahojky</a>
+                </div>
+            </div>
+            <i class="icon" id="i-arrow-down-left-subscribers"></i>
+            <i class="icon" id="i-arrow-down-right-subscribers"></i>
+        </div>
+    </section>
+
+    <section class="settings hidden invoice-items">
+        <h3 class="l text-center">Položky faktury</h3>
+        <div class="bottom-line"></div>
+        <div class="container">
+            <div class="grid">
+                <div class="company-items flex">
+                    <label for="invoice-item">Položka faktury</label>
+                    <input type="text" class="input-text" required name="invoice-item" id="invoice-item" placeholder="Položka faktury">
+                </div>
+                <div class="company-items flex">
+                    <label for="item-price">Cena položky s DPH</label>
+                    <input type="text" class="input-text" required name="item-price" id="item-price" placeholder="Cena položky s DPH">
+                </div>
+                <div class="company-items flex">
+                    <label for="item-vat">Sazba DPH</label>
+                    <input type="text" class="input-text" required name="item-vat" id="item-vat" placeholder="Sazba DPH">
+                </div>
+                <div class="btns">
+                    <input class="btn" type="button" value="Vytvořit položku">
+                </div>
+            </div>
+            <div class="dropdown">
+                <input type="button" onclick="dropdownHideOrShowSection(this, 'i-arrow-down-left', 'i-arrow-down-right')" value="Položky faktury" class="dropbtn" id="dropbtn">
+                <div id="dropdown-content">
+                    <div class="input-container">
+                        <input type="text" name="filter-dropdown" id="filter-dropdown" onkeyup="filterDropDown()" placeholder="Hledej...">
+                    <i class="icon" id="i-search"></i>
+                    </div>
+                    <div class="table-container">
+                        <table class="table-items">
+                            <tr>
+                                <th>Id</th>
+                                <th>Položka faktury</th>
+                                <th>Cena položky s DPH</th>
+                                <th>Sazba DPH</th>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a href="#" onclick="modalContent('my-modal')">První item</a>
+                                    <td>558</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a href="#" onclick="modalContent('my-modal')">Druhej item</a>
+                                    <td>558</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a href="#" onclick="modalContent('my-modal')">Třetí item</a>
+                                    <td>558</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a href="#" onclick="modalContent('my-modal')">Třetí item</a>
+                                    <td>558</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a href="#" onclick="modalContent('my-modal')">Třetí item</a>
+                                    <td>558</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a href="#" onclick="modalContent('my-modal')">Třetí item</a>
+                                    <td>558</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a href="#" onclick="modalContent('my-modal')">Čtvrtej item</a>
+                                    <td>558</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a href="#" onclick="modalContent('my-modal')">Čtvrtej item</a>
+                                    <td>558</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a href="#" onclick="modalContent('my-modal')">Čtvrtej item</a>
+                                    <td>558</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a href="#" onclick="modalContent('my-modal')">Čtvrtej item</a>
+                                    <td>558</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a href="#" onclick="modalContent('my-modal')">Pátej item</a>
+                                    <td>558</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a href="#" onclick="modalContent('my-modal')">Pátej item</a>
+                                    <td>558</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a href="#" onclick="modalContent('my-modal')">Pátej item</a>
+                                    <td>558</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><a href="#" onclick="modalContent('my-modal')">Pátej item</a>
+                                    <td>558</td>
+                                <td>10</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <i class="icon" id="i-arrow-down-left"></i>
+                <i class="icon" id="i-arrow-down-right"></i>
+            </div>
+        </div>
+    </section>
+    <section class="modal">
+        <div id="my-modal">
+            <div class="modal-content container">
+                <h3 class="text-center border-bot">Upravit položku faktury</h3>
+                <div class="company-items flex">
+                    <label for="edit-invoice-item-id">Id Položky</label>
+                    <input type="text" class="input-text" required name="edit-invoice-item-id" id="edit-invoice-item-id" disabled value="5" style="background-color: #fff;">
+                </div>
+                <div class="company-items flex">
+                    <label for="edit-invoice-item">Položka faktury</label>
+                    <input type="text" class="input-text" required name="edit-invoice-item" id="edit-invoice-item" placeholder="Položka faktury">
+                </div>
+                <div class="company-items flex">
+                    <label for="edit-item-price">Cena položky s DPH</label>
+                    <input type="text" class="input-text" required name="edit-item-price" id="edit-item-price" placeholder="Cena položky s DPH">
+                </div>
+                <div class="company-items flex">
+                    <label for="edit-item-vat">Sazba DPH</label>
+                    <input type="text" class="input-text" required name="edit-item-vat" id="edit-item-vat" placeholder="Sazba DPH">
+                </div>
+                <div class="btns">
+                    <input class="btn" type="button" value="Upravit položku">
+                </div>
+            </div>
+            <span onclick="closeModal(this)" class="close">&times;</span>
+        </div>
+    </section>
     <footer>
         <div class="footer flex">
             <p class="m">Copyright &copy; 2021</p>
@@ -198,8 +420,6 @@
                 <nav>
                     <ul>
                         <li><a href="./index.html">Přehled faktur</a></li>
-                        <li><a href="./index.html">Vytvořit fakturu</a></li>
-                        <li><a href="./invoiceTraining.html">Tisk faktury</a></li>
                         <li><a href="./settings.html">Nastavení</a></li>
                     </ul>
                 </nav>
