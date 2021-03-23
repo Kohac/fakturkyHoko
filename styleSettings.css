@@ -229,9 +229,11 @@ label{
     width: 100%;
     cursor: pointer;
     padding: 8px 5px;
+    color: #fff;
     box-shadow: 10px 10px 10px 5px rgba(0,0,0,0.62);
-    /* border: none;
-    outline: none; */
+}
+.company-data .input-file::-webkit-file-upload-button:hover{
+    background-color: var(--light-color);
 }
 .input-text{
     padding: 4px 12px;
@@ -434,6 +436,9 @@ label{
     color: var(--neutral-color);
     font-weight: bold;
 }
+.settings .subscribers-dropdown{
+    margin: 0 3px 0 3px;
+}
 /* dropdown */
 /* table items */
 .table-container{
@@ -469,7 +474,7 @@ label{
 }
 /* table items */
 /* Modal */
-#my-modal{
+#edit-item-modal, #edit-subscriber-modal{
     display: none;
     position: absolute;
     top: 0;
@@ -480,8 +485,9 @@ label{
     z-index: 100;
     color: #fff;
     animation: scaleIn 0.7s ease;
+    overflow: hidden;
 }
-.modal-content{
+.edit-item-modal-content, .edit-subscriber-modal-content{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -512,3 +518,4 @@ label{
     color: var(--primary-color);
 }
 /* Footer */
+

@@ -40,7 +40,8 @@ function dropdownHideOrShowSection(element, toggleLeftName, toggleRightName) {
     element.classList.toggle("focused");
     document.getElementById(toggleRightName).classList.toggle("rotate-right-top");
     document.getElementById(toggleLeftName).classList.toggle("rotate-left-top");
-    const dropwdownContent = element.nextElementSibling;    
+    const dropwdownContent = element.nextElementSibling;
+    console.log(dropwdownContent);    
     if (dropwdownContent.style.display === "block") {
         dropwdownContent.style.display = "none"
     }
@@ -48,12 +49,12 @@ function dropdownHideOrShowSection(element, toggleLeftName, toggleRightName) {
         dropwdownContent.style.display = "block";
     }        
 }
-function filterDropDown() {
-    let inputValue = document.getElementById("filter-dropdown");
-    let elementSection = document.getElementById("dropdown-content");
+function filterDropDown(inputId, sectionId, cellIndex) {
+    let inputValue = document.getElementById(inputId);
+    let elementSection = document.getElementById(sectionId);
     let tr = elementSection.getElementsByTagName("tr");
     for (let index = 1; index < tr.length; index++) {
-        txtValue = tr[index].getElementsByTagName("td")[1].textContent;
+        txtValue = tr[index].getElementsByTagName("td")[cellIndex].textContent;
         if (txtValue.toUpperCase().indexOf(inputValue.value.toUpperCase()) > -1 ){
             tr[index].style.display = "";
         }
