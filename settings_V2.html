@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="./script_V2.js"></script>    
+    <title>KoHo Settings</title>
+</head>
+<body>
+    <header>
+        <div class="header flex p-1">
+            <div class="flex flex-title">
+                <h1 class="title xxl">Nastavení</h1>
+                <i id="title-i" class="icon"></i>
+            </div>
+            <div class="navbar">
+                <ul>
+                    <li><a href="#">Faktury</a></li>
+                    <li><a class="active" href="#">Nastavení</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="settings-container">
+            <div class="grid grid-two-line container">
+                <div class="panel-one">
+                    <div class="basic-settings flex-panel">
+                        <a class="btn-a" href="#">Základní nastavení</a>
+                        <i id="basic-settings-i" class="icon"></i>
+                    </div>
+                    <div class="company-settings flex-panel">
+                        <a class="btn-a" href="#">Údaje firmy</a>
+                        <i id="company-settings-i" class="icon"></i>
+                    </div>
+                    <div class="subscribers flex-panel">
+                        <a class="btn-a" href="#">Seznam odběratelů</a>
+                        <i id="subscribers-i" class="icon"></i>
+                    </div>
+                    <div class="bank-data flex-panel">
+                        <a class="btn-a" href="#">Bankovní spojení</a>
+                        <i id="bank-data-i" class="icon"></i>
+                    </div>
+                    <div class="invoice-items flex-panel">
+                        <a class="btn-a" href="#">Položky faktury</a>
+                        <i id="invoice-items-i" class="icon"></i>
+                    </div>
+                </div>
+                <div class="panel-two">
+                    <div id="basic-settings">
+                    </div>
+                    <div id="company-settings">
+                    </div>
+                    <div id="subsribers">
+                    </div>
+                    <div id="bank-data">
+                    </div>
+                    <div id="invoice-items">
+                        <h3 class="text-center xl">Položky faktury</h3>
+                        <div class="bottom-line"></div>
+                        <!-- <button class="btn" type="submit">Vytvořit novou položku</button> -->
+                        <a onclick="createItem('modal')" class="btn-a" href="#">Vytvořit novou položku</a>
+                        <table id="table-items">
+                            <tr>
+                                <th>Označení položky</th>
+                                <th>Název položky</th>
+                                <th>Částka s DPH</th>
+                                <th>DPH %</th>
+                                <th>Akce</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div id="modal">
+            <div id="modal-content">
+            </div>
+            <span onclick="closeModal()" id="close">&times;</span>
+        </div>
+    </section>
+</body>
+</html>

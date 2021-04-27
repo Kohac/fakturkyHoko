@@ -1,0 +1,389 @@
+/* utilities */
+:root{
+    --primary-bg: #162B32;
+    --secondary-bg: #FF4838;
+    --neutral-bg: #6b6e70;
+    --panel-one: #FFCF43;
+    --panel-two: #5CE0D8;
+    --btn-classic: #008bf5;
+    --btn-classic-hover: #0d57df;
+    --btn-update: #4ECB4A;
+    --btn-update-hover: #1eaa19;
+    --btn-delete: #D81C23;
+    --btn-delete-hover: #D81C23;
+    --input-bg: #222629;
+}
+*,
+*::before,
+*::after{
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+}
+.s{
+    font-size: 0.8em;
+}
+.m{
+    font-size: 1.8em;
+}
+.l{
+    font-size: 2.4em;
+}
+.xl{
+    font-size: 3em;
+}
+.xxl{
+    font-size: 4em;
+}
+.m-1{
+    margin: 10px;
+}
+.m-modal{
+    padding: 10px
+}
+.p-1{
+    padding: 0px 40px;
+}
+.text-center{
+    text-align: center;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.active{
+    border: 1px solid var(--secondary-bg);
+    border-radius: 5px;
+}
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+}
+.icon::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+  }
+/* utilities */
+/* header */
+.header{
+    background-color: var(--primary-bg);
+    color: var(--secondary-bg);
+}
+.flex-title h1{
+    margin-right: 15px;
+}
+.header .navbar ul li{
+    display: inline-block;
+}
+.header .navbar ul li a{
+    text-decoration: none;
+    color: var(--secondary-bg);
+    display: inline-block;
+    padding: 5px 6px;
+    margin-right: 15px;
+    border-bottom: 2px solid var(--secondary-bg);
+    font-size: 1.4em;
+    font-weight: bold;
+}
+.header .navbar ul li a:hover{
+    transform: translateY(-10%);
+    border-width: 2px;
+}
+#title-i::after{
+    font-family: "Font Awesome 5 Free";
+    font-size: 1.6em;
+    font-style: normal;
+    font-weight: 700;
+    content: '\f013';
+}
+/* header */
+/* Settings */
+.settings-container{
+    height: 800px;
+    border-bottom: 5px solid var(--primary-bg);
+}
+.grid-two-line{
+    grid-template-columns: 240px calc(100% - 250px);
+    height: 100%;
+    gap: 10px;
+}
+/* line one */
+.basic-settings{
+    margin-top: 20px;
+}
+.panel-one > div{
+    position: relative;
+    margin-bottom: 15px;
+    width: 100%;
+    /* border-bottom: 2px solid var(--primary-bg); */
+}
+.panel-one{
+    background-color: var(--panel-one);
+    border-right: 5px solid var(--primary-bg);
+}
+.flex-panel{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.panel-one a{
+    color: var(--primary-bg);
+    font-weight: bold;
+    font-size: 1.2em;
+    text-decoration: none;
+    display: inline-block;
+    padding: 6px 8px;
+}
+.panel-one a::after{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    width: 100%;
+    border-bottom: 2px solid var(--primary-bg);
+}
+#basic-settings-i::after{
+    font-family: "Font Awesome 5 Free";
+    font-size: 1.6em;
+    font-style: normal;
+    font-weight: 700;
+    content: '\f6e3';
+}
+#company-settings-i::after{
+    font-family: "Font Awesome 5 Free";
+    font-size: 1.6em;
+    font-style: normal;
+    font-weight: 700;
+    content: '\f1ad';
+}
+#subscribers-i::after{
+    font-family: "Font Awesome 5 Free";
+    font-size: 1.6em;
+    font-style: normal;
+    font-weight: 700;
+    content: '\f007';
+}
+#bank-data-i::after{
+    font-family: "Font Awesome 5 Free";
+    font-size: 1.6em;
+    font-style: normal;
+    font-weight: 700;
+    content: '\f4d3';
+}
+#invoice-items-i::after{
+    font-family: "Font Awesome 5 Free";
+    font-size: 1.6em;
+    font-style: normal;
+    font-weight: 700;
+    content: '\f571';
+}
+/* line one */
+/* line two */
+.panel-two{
+    border-left: 5px solid var(--primary-bg);
+    /* background-color: var(--panel-two); */
+}
+.btn{
+    width: 100%;
+    outline: none;
+    border: none;
+    height: 2em;
+    background-color: var(--btn-classic);
+    border: 3px solid var(--primary-bg);
+    font-weight: bold;
+    font-size: 1em;
+}
+.btn:hover{
+    transition: all 0.4s ease;
+    background-color: var(--btn-classic-hover);
+    color: #fff;
+}
+.btn-edit{
+    display: block;
+    width: 50%;
+    outline: none;
+    border: none;
+    margin: auto;
+    height: 2.5em;
+    background-color: var(--btn-update);
+    /* border: 3px solid var(--primary-bg); */
+    /* font-weight: bold; */
+    font-size: 1em;
+}
+.btn-edit:hover{
+    transition: all 0.4s ease;
+    background-color: var(--btn-update-hover);
+    color: #fff;
+    font-weight: bold;
+}
+#table-items{
+    width: 100%;
+    height: 100%;
+    margin-top: 15px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+#table-items tr:nth-child(1){
+    background-color: var(--primary-bg);
+    color: var(--secondary-bg);
+}
+#table-items th{
+    text-align: center;
+    border-right: 1px solid #fff;
+    font-size: 1.8em;
+}
+#table-items td{
+    text-align: left;
+    padding-left: 13px;
+    font-size: 1.15em;
+    border-right: 1px solid #fff;
+}
+/* #table-items th{
+    background-color: var(--primary-bg);
+    color: #fff;
+    font-weight: 200;
+    font-size: 1.2em;
+} */
+#table-items tr:nth-child(odd):not(:nth-child(1)){
+    background-color: rgb(223, 220, 220);
+}
+#table-items tr:nth-last-child(1){
+    border-bottom: 2px solid var(--primary-bg);
+}
+#table-items tr:not(:nth-child(1)):hover{
+    background-color: rgb(185, 185, 185);
+}
+.flex-icon{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#update-item-i::after{
+    font-family: "Font Awesome 5 Free";
+    font-size: inherit;
+    font-style: normal;
+    font-weight: 700;
+    content: '\f044';
+    cursor: pointer;
+}
+#delete-item-i::after{
+    font-family: "Font Awesome 5 Free";
+    font-size: inherit;
+    font-style: normal;
+    font-weight: 700;
+    content: '\f2ed';
+    cursor: pointer;
+}
+#invoice-items .btn-a{
+    display: block;
+    width: 50%;
+    height: 44px;
+    font-size: 1.5em;
+    margin: auto;
+    text-align: center;
+    outline: none;
+    text-decoration: none;
+    background-color: var(--btn-classic);
+    border: 2px solid #162B32;
+}
+#invoice-items .btn-a:hover{
+    background-color: var(--btn-classic-hover);
+    color: #fff;
+    font-weight: bold;
+    transform: scale(0.99);
+    transition: all 0.3s ease;
+}
+#invoice-items .btn-a:active{
+    background-color: var(--btn-classic-hover);
+    color: #fff;
+}
+/* line two */
+/* modal */
+#modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.82);
+}
+#modal-content{
+    background-color: var(--neutral-bg);
+    position: absolute;
+    width: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    padding: 10px 20px 40px 20px;
+}
+#close{
+    font-size: 5em;
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    cursor: pointer;
+}
+/* modal content from js */
+#modal-content input[type="text"]{
+    background-color: #162B32;
+    color: #fff;
+    outline: none;
+    border: none;
+    padding-left: 13px;
+    height: 2em;
+    width: 50%;
+}
+#modal-content input[type="text"]::placeholder{
+    color: #fff;
+}
+#modal-content input[type="text"]:active,
+#modal-content input[type="text"]:valid,
+#modal-content input[type="text"]:focus,
+#modal-content input[type="text"]:disabled{
+    background-color: #fff;
+    color: var(--primary-bg);
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+#modal-content label{
+    height: 2em;
+    width: 50%;
+}
+.modal-title{
+    position: relative;
+}
+.modal-title::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    display: block;
+    width: 100%;
+    border-bottom: #fff solid 3px;
+}
+#modal-content .flex{
+    justify-content: space-between;
+    align-items: center;
+}
+#modal-content > div{
+    margin-bottom: 8px;
+}
+/* modal content from js */
+/* modal */
+/* Settings */

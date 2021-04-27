@@ -289,18 +289,18 @@
             <div class="grid">
                 <div class="company-items flex">
                     <label for="invoice-item">Položka faktury</label>
-                    <input type="text" class="input-text" required name="invoice-item" id="invoice-item" placeholder="Položka faktury">
+                    <input type="text" class="input-text item-creation" required name="invoice-item" id="invoice-item" placeholder="Položka faktury">
                 </div>
                 <div class="company-items flex">
                     <label for="item-price">Cena položky s DPH</label>
-                    <input type="text" class="input-text" required name="item-price" id="item-price" placeholder="Cena položky s DPH">
+                    <input type="text" class="input-text item-creation" required name="item-price" id="item-price" placeholder="Cena položky s DPH">
                 </div>
                 <div class="company-items flex">
                     <label for="item-vat">Sazba DPH</label>
-                    <input type="text" class="input-text" required name="item-vat" id="item-vat" placeholder="Sazba DPH">
+                    <input type="text" class="input-text item-creation" required name="item-vat" id="item-vat" placeholder="Sazba DPH">
                 </div>
                 <div class="btns">
-                    <input class="btn" type="button" value="Vytvořit položku">
+                    <input onclick="validateItemCreation()" class="btn" type="button" value="Vytvořit položku">
                 </div>
             </div>
             <div class="dropdown">
@@ -310,98 +310,13 @@
                         <input type="text" name="filter-dropdown" id="filter-dropdown" onkeyup="filterDropDown('filter-dropdown', 'dropdown-content',1)" placeholder="Hledej...">
                     <i class="icon" id="i-search"></i>
                     </div>
-                    <div class="table-container">
-                        <table class="table-items">
-                            <tr>
-                                <th>Id</th>
-                                <th>Položka faktury</th>
-                                <th>Cena položky s DPH</th>
-                                <th>Sazba DPH</th>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td><a href="#" onclick="modalContent('edit-item-modal')">První item</a>
-                                    <td>558</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td><a href="#" onclick="modalContent('edit-item-modal')">Druhej item</a>
-                                    <td>558</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td><a href="#" onclick="modalContent('edit-item-modal')">Třetí item</a>
-                                    <td>558</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td><a href="#" onclick="modalContent('edit-item-modal')">Třetí item</a>
-                                    <td>558</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td><a href="#" onclick="modalContent('edit-item-modal')">Třetí item</a>
-                                    <td>558</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td><a href="#" onclick="modalContent('edit-item-modal')">Třetí item</a>
-                                    <td>558</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td><a href="#" onclick="modalContent('edit-item-modal')">Čtvrtej item</a>
-                                    <td>558</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td><a href="#" onclick="modalContent('edit-item-modal')">Čtvrtej item</a>
-                                    <td>558</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td><a href="#" onclick="modalContent('edit-item-modal')">Čtvrtej item</a>
-                                    <td>558</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td><a href="#" onclick="modalContent('edit-item-modal')">Čtvrtej item</a>
-                                    <td>558</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td><a href="#" onclick="modalContent('edit-item-modal')">Pátej item</a>
-                                    <td>558</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td><a href="#" onclick="modalContent('edit-item-modal')">Pátej item</a>
-                                    <td>558</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td><a href="#" onclick="modalContent('edit-item-modal')">Pátej item</a>
-                                    <td>558</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td><a href="#" onclick="modalContent('edit-item-modal')">Pátej item</a>
-                                    <td>558</td>
-                                <td>10</td>
-                            </tr>
+                    <div class="item-container" id="items-list">
+                        <!-- table-items -->
+                        <table class="table-items" id="table-items">
+                            <th>Označení položky</th>
+                            <th>Název položky</th>
+                            <th>Částka s DPH</th>
+                            <th>DPH %</th>
                         </table>
                     </div>
                 </div>
@@ -459,7 +374,7 @@
                 <h3 class="text-center border-bot">Upravit položku faktury</h3>
                 <div class="company-items flex">
                     <label for="edit-invoice-item-id">Id Položky</label>
-                    <input type="text" class="input-text" required name="edit-invoice-item-id" id="edit-invoice-item-id" disabled value="5" style="background-color: #fff;">
+                    <input type="text" class="input-text" required name="edit-invoice-item-id" id="edit-invoice-item-id" disabled style="background-color: #fff;">
                 </div>
                 <div class="company-items flex">
                     <label for="edit-invoice-item">Položka faktury</label>
@@ -474,7 +389,8 @@
                     <input type="text" class="input-text" required name="edit-item-vat" id="edit-item-vat" placeholder="Sazba DPH">
                 </div>
                 <div class="btns">
-                    <input class="btn" type="button" value="Upravit položku">
+                    <input style="display:none" id="item-delete" class="btn-delete" type="button" value="Smazat položku">
+                    <input style="display:none" id="item-update" class="btn" type="button" value="Upravit položku">
                 </div>
             </div>
             <span onclick="closeModal(this)" class="close">&times;</span>
