@@ -107,8 +107,9 @@
 /* header */
 /* Settings */
 .settings-container{
-    height: 800px;
+    /* height: 1200px; */
     border-bottom: 5px solid var(--primary-bg);
+    /* overflow: hidden; */
 }
 .grid-two-line{
     grid-template-columns: 240px calc(100% - 250px);
@@ -123,12 +124,28 @@
     position: relative;
     margin-bottom: 15px;
     width: 100%;
-    /* border-bottom: 2px solid var(--primary-bg); */
+    cursor: pointer;
+    border-width: 100%;
+    border-top: 2px solid var(--primary-bg);
+    border-bottom: 2px solid var(--primary-bg);
+}
+.panel-one > div:hover,
+.panel-one > div a:hover{
+    transform: scale(0.98);
 }
 .panel-one{
     background-color: var(--panel-one);
     border-right: 5px solid var(--primary-bg);
 }
+/* .panel-one .basic-settings::before{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: -7px;
+    width: 100%;
+    border-bottom: 2px solid var(--primary-bg);
+} */
 .flex-panel{
     display: flex;
     justify-content: space-evenly;
@@ -142,7 +159,7 @@
     display: inline-block;
     padding: 6px 8px;
 }
-.panel-one a::after{
+/* .panel-one a::after{
     content: '';
     display: block;
     position: absolute;
@@ -150,7 +167,7 @@
     bottom: -7px;
     width: 100%;
     border-bottom: 2px solid var(--primary-bg);
-}
+} */
 #basic-settings-i::after{
     font-family: "Font Awesome 5 Free";
     font-size: 1.6em;
@@ -231,6 +248,7 @@
     margin-top: 15px;
     table-layout: fixed;
     border-collapse: collapse;
+    overflow: auto;
 }
 #table-items tr:nth-child(1){
     background-color: var(--primary-bg);
@@ -283,6 +301,9 @@
     font-weight: 700;
     content: '\f2ed';
     cursor: pointer;
+}
+#invoice-items{
+    display: none;
 }
 #invoice-items .btn-a{
     display: block;
@@ -386,4 +407,13 @@
 }
 /* modal content from js */
 /* modal */
+/* sucess modal */
+#item-success-i::before{
+    font-family: "Font Awesome 5 Free";
+    font-size: 1.6em;
+    font-style: normal;
+    font-weight: 700;
+    content: '\f013';
+}
+/* sucess modal */
 /* Settings */

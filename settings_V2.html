@@ -8,7 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <script src="./script_V2.js"></script>    
+    <script type="module" defer src="./jsModules/main.js"></script>
+    <!-- <script src="./script_V2.js"></script>
+    <script src="./listeners.js" defer></script>     -->
     <title>KoHo Settings</title>
 </head>
 <body>
@@ -30,23 +32,23 @@
         <div class="settings-container">
             <div class="grid grid-two-line container">
                 <div class="panel-one">
-                    <div class="basic-settings flex-panel">
+                    <div id="basic-setting" class="basic-settings flex-panel">
                         <a class="btn-a" href="#">Základní nastavení</a>
                         <i id="basic-settings-i" class="icon"></i>
                     </div>
-                    <div class="company-settings flex-panel">
+                    <div id="company-setting" class="company-settings flex-panel">
                         <a class="btn-a" href="#">Údaje firmy</a>
                         <i id="company-settings-i" class="icon"></i>
                     </div>
-                    <div class="subscribers flex-panel">
+                    <div id="subsriber" class="subscribers flex-panel">
                         <a class="btn-a" href="#">Seznam odběratelů</a>
                         <i id="subscribers-i" class="icon"></i>
                     </div>
-                    <div class="bank-data flex-panel">
+                    <div id="bank-data" class="bank-data flex-panel">
                         <a class="btn-a" href="#">Bankovní spojení</a>
                         <i id="bank-data-i" class="icon"></i>
                     </div>
-                    <div class="invoice-items flex-panel">
+                    <div id="invoice-item" class="invoice-items flex-panel">
                         <a class="btn-a" href="#">Položky faktury</a>
                         <i id="invoice-items-i" class="icon"></i>
                     </div>
@@ -58,13 +60,13 @@
                     </div>
                     <div id="subsribers">
                     </div>
-                    <div id="bank-data">
+                    <div id="bank-datas">
                     </div>
                     <div id="invoice-items">
                         <h3 class="text-center xl">Položky faktury</h3>
                         <div class="bottom-line"></div>
                         <!-- <button class="btn" type="submit">Vytvořit novou položku</button> -->
-                        <a onclick="createItem('modal')" class="btn-a" href="#">Vytvořit novou položku</a>
+                        <a id="create-item" class="btn-a" href="#">Vytvořit novou položku</a>
                         <table id="table-items">
                             <tr>
                                 <th>Označení položky</th>
@@ -79,11 +81,18 @@
             </div>
         </div>
     </section>
+    <!-- <section>
+        <div id="confirmation">
+            <div id="confirmation-content">
+                <i class="icon" id="item-success-i"></i>
+            </div>
+        </div>
+    </section> -->
     <section>
         <div id="modal">
             <div id="modal-content">
             </div>
-            <span onclick="closeModal()" id="close">&times;</span>
+            <span id="close">&times;</span>
         </div>
     </section>
 </body>
